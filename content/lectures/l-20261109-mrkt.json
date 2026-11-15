@@ -1,0 +1,16 @@
+{
+  "id": "l-20261109-mrkt",
+  "course": "c-20261109-mrkt",
+  "title": "أساسيات في التسويق",
+  "description": "مفهوم التسويق وتطوره، وأهدافه وعناصره، وسلوك المستهلك، ومحيط المقاولة، مع أمثلة تطبيقية.",
+  "kind": "lecture",
+  "order": 1,
+  "date": "2026-11-09",
+  "file": {
+    "path": "files/lectures/l-20261109-mrkt.pptx",
+    "name": "أساسيات في التسويق.pptx",
+    "size": 749080,
+    "type": "pptx"
+  },
+  "thumb": "images/thumbs/l-20261109-mrkt.jpg"
+}

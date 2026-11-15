@@ -1,0 +1,24 @@
+{
+  "name": "professor-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "الموقع العلمي للأستاذ: محاضرات، مقررات، مقالات، مؤلفات وأبحاث — مع لوحة تحكم عربية للنشر.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "check": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.3",
+    "dompurify": "3.4.14",
+    "esbuild": "0.28.2",
+    "pdfjs-dist": "6.2.108",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

@@ -1,0 +1,188 @@
+/* PDF reader (pdf.js) — loaded only on pages that show a PDF. */
+@import 'pdfjs-dist/legacy/web/pdf_viewer.css';
+
+.pdf-reader {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+.pdf-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.45rem 0.55rem;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.pdf-toolbar .sep {
+  width: 1px;
+  height: 1.6rem;
+  background: var(--border-strong);
+  margin-inline: 0.2rem;
+}
+.pdf-toolbar .grow {
+  flex: 1;
+}
+.tb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding-inline: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  &:hover {
+    background: var(--surface-3);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  &:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  &.primary {
+    background: var(--emerald-800);
+    color: #fff;
+    &:hover {
+      background: var(--emerald-700);
+    }
+  }
+}
+.tb-page {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-2);
+  input {
+    width: 3.2rem;
+    height: 2rem;
+    text-align: center;
+    border: 1px solid var(--border-strong);
+    border-radius: 7px;
+    background: var(--surface);
+    font-variant-numeric: tabular-nums;
+  }
+}
+.tb-scale {
+  min-width: 3.6rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-2);
+  direction: ltr;
+}
+.tb-find {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.5rem;
+  height: 2.1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  input {
+    width: 9rem;
+    border: 0;
+    outline: none;
+    background: transparent;
+  }
+  small {
+    color: var(--text-3);
+    white-space: nowrap;
+  }
+}
+.pdf-stage {
+  position: relative;
+  height: min(80svh, 1100px);
+  min-height: 420px;
+  background: var(--reader-bg);
+}
+.pdf-container {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.pdf-container .pdfViewer {
+  padding-block: 10px;
+}
+.pdf-container .pdfViewer .page {
+  margin: 12px auto;
+  border: 0;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 0.18);
+  border-radius: 2px;
+}
+.pdf-status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  color: var(--text-2);
+  padding: 1.5rem;
+  background: var(--reader-bg);
+}
+.pdf-status .bar {
+  width: min(260px, 60vw);
+  height: 6px;
+  border-radius: 6px;
+  background: var(--border);
+  overflow: hidden;
+}
+.pdf-status .bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--brass-400);
+  transition: width 0.2s;
+}
+.pdf-status .spinner {
+  width: 2.2rem;
+  height: 2.2rem;
+  color: var(--brass-500);
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.pdf-reader.is-expanded {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  border-radius: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  .pdf-stage {
+    flex: 1;
+    height: auto;
+  }
+}
+body.reader-open {
+  overflow: hidden;
+}
+@media (max-width: 640px) {
+  .pdf-toolbar .hide-sm {
+    display: none;
+  }
+  .pdf-stage {
+    height: 74svh;
+  }
+  .tb-find input {
+    width: 6.5rem;
+  }
+}
